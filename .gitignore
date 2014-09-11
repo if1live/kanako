@@ -107,3 +107,14 @@ sympy-plots-for-*.tex/
 
 # xindy
 *.xdy
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# fixture
+fixtures.json
+
+# generated files
+*-output.*
