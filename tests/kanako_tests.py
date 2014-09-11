@@ -29,7 +29,10 @@ class to_output_path_test(unittest.TestCase):
 class build_report_test(unittest.TestCase):
     def test_run(self):
         ctx = {'name': 'foo'}
-        expected = 'name:foo'
+        expected = r'''
+name:foo
+\footnote{% hello }
+'''.strip()
         input_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'dummy.tex')
         actual = kanako.build_report(input_file, ctx)
         self.assertEqual(actual, expected)

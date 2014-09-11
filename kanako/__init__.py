@@ -18,7 +18,13 @@ def build_report(input_file, fixture):
     with open(input_file, 'rb') as f:
         content = to_utf8(f.read())
 
-    template = Template(content)
+    # TeX footnote is \footnote{% ... }
+    # to avoid confilct
+    template = Template(
+        content,
+        block_start_string='{%%',
+        block_end_string='%%}',
+    )
     output = template.render(ctx=fixture)
 
     output_file = to_output_path(input_file)
